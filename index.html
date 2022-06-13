@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/bootstrap/table-03/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Jun 2022 21:37:56 GMT -->
+
+<head>
+    <title>Daily Expense Calculator - Subhajit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="topTableHeading">
+                        <div id="headingText" class="text-center headText">
+                            <h4>
+                                <span>Daily</span> 
+                                <span>expense</span> 
+                                <span>calculator</span>
+                            </h4>
+                                
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr>
+                                    <th>Inflationary Expenses</th>
+                                    <th>Mthly (Rs)</th>
+                                    <th>Annual (Rs)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="scope">Household Expenses</th>
+                                    <td id="displayArrow">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="monthlyInputField" onfocusout="expenseC1()">
+                                    </td>
+                                    <td id="displayYearExp">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="yearlyInputField">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="scope">Housing & Accomodation</th>
+                                    <td id="displayArrow">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="monthlyInputField" onfocusout="expenseC1()">
+                                    </td>
+                                    <td id="displayYearExp">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="yearlyInputField">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="scope">Entertainment & Travelling</th>
+                                    <td id="displayArrow">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="monthlyInputField" onfocusout="expenseC1()">
+                                    </td>
+                                    <td id="displayYearExp">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="yearlyInputField">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="scope">Personal Goods, Clothes, etc</th>
+                                    <td id="displayArrow">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="monthlyInputField" onfocusout="expenseC1()">
+                                    </td>
+                                    <td id="displayYearExp">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="yearlyInputField">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="scope">Vacations</th>
+                                    <td id="displayArrow">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="monthlyInputField" onfocusout="expenseC1()">
+                                    </td>
+                                    <td id="displayYearExp">
+                                        <i class="fa fa-inr" aria-hidden="true"></i>
+                                        <input type="text" class="yearlyInputField">
+                                    </td>
+                                </tr>
+                                
+                                <thead class="thead-primary">
+                                    <tr>
+                                        <th scope="row" class="scope">Total</th>
+                                        <td id="displayArrow">
+                                            <div class="spcialClass">
+                                                <i class="fa fa-inr" aria-hidden="true"></i>
+                                                <p id="totalMonthlyExpence">0</p>
+                                            </div>
+                                        </td>
+                                        <td id="displayYearExp">
+                                            <div class="spcialClass">
+                                                <i class="fa fa-inr" aria-hidden="true"></i>
+                                                <p type="text" id="totalYearlyExpance">0</p>
+                                            </div>
+                                            
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="art">
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+    </div>
+    
+
+    <script>
+        var infExpMont = document.getElementById('infExpMont');
+        var infExpYearly = document.getElementById('infExpYearly');
+        var afterImg = document.getElementById('displayArrow');
+        var emptyArray = [];
+        var emptyArrayForMonth = [];
+        // var totalYearlyExp = 0;
+        
+        const expenseC1 = () => {
+            infExpYearly.value = infExpMont.value*12;
+            afterImg.classList.add("forArrow");
+        }
+
+        var fieldClass = document.getElementsByClassName('monthlyInputField');
+        var fieldYearlyInp = document.getElementsByClassName('yearlyInputField')
+        for(let i=0; i<fieldClass.length; i++){
+            if (fieldClass.length) {
+                var getField = fieldClass[i];
+                getField.id = 'monthCal'+[i];
+                getField.setAttribute("onfocusout", "expenseCalc(this)");
+            }   
+
+            // if (fieldYearlyInp.length) {
+            //     fieldYearlyInp[i].id = 'yearlyCal'+[i];
+                
+            //     emptyArray.push(fieldYearlyInp[i].id)
+            // } 
+        }
+
+        // console.log(emptyArray);
+
+        function expenseCalc(e) {
+            // afterImg.classList.add("forArrow");
+            var monthExp = document.getElementById(e.id);
+            var nextsib = monthExp.parentElement.nextSibling.nextSibling;
+            // nextsib.innerHTML = `<p>${e.value*12}</p>`;
+            var yearlyExp = e.value*12;
+            nextsib.innerHTML = `<i class="fa fa-inr" aria-hidden="true"></i> <input disabled value="${yearlyExp}">`;
+            emptyArray.push(yearlyExp);
+            emptyArrayForMonth.push(parseInt(e.value));
+
+            // console.log(emptyArray);
+            // console.log(emptyArrayForMonth);
+                    
+            var anotherParent = monthExp.parentElement
+            anotherParent.classList.add("forArrow");
+
+            const reducer = (accumulator, curr) => accumulator + curr;
+            const totalYearlyExp = emptyArray.reduce(reducer);
+            const totalMonthlyExp = emptyArrayForMonth.reduce(reducer);
+            
+
+
+            document.getElementById('totalYearlyExpance').innerHTML = totalYearlyExp;
+            document.getElementById('totalMonthlyExpence').innerHTML = totalMonthlyExp;
+        }
+
+
+
+
+
+        
+        const headingText = document.getElementById('headingText');
+        var sticky = headingText.offsetTop;
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            // console.log(window.pageYOffset)
+            // console.log(sticky)
+        if (window.pageYOffset > 80
+         ) {
+            headingText.classList.remove('headText');
+            headingText.classList.add("sticky");
+        }else{
+            headingText.classList.add("headText");
+            headingText.classList.remove("sticky");
+        }
+        }
+
+    </script>
+
+
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/bootstrap/table-03/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Jun 2022 21:37:58 GMT -->
+
+</html>
